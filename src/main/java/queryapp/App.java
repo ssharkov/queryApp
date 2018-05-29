@@ -67,24 +67,7 @@ public class App {
         }
     }
 
-    private static Statement establishConnection() {
-        Connection connection = null;
-        Statement statement = null;
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-        try {
-            connection = DriverManager.getConnection(databaseUrl, user, password);
-            statement = connection.createStatement();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return statement;
-    }
-
-    public static List<String> getAll() throws SQLException {
+    public static List<String> getAll() {
         Statement statement = establishConnection();
         List<String> list = new ArrayList<String>();
         try {
@@ -101,5 +84,22 @@ public class App {
             e.printStackTrace();
         }
         return list;
+    }
+
+    private static Statement establishConnection() {
+        Connection connection = null;
+        Statement statement = null;
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        try {
+            connection = DriverManager.getConnection(databaseUrl, user, password);
+            statement = connection.createStatement();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return statement;
     }
 }

@@ -3,8 +3,6 @@ package queryapp.utils;
 import queryapp.tables.Persons;
 
 public class SqlBuilder {
-//    private String sqlSelect = "SELECT * FROM persons";
-//    private String sqlInsert = "INSERT INTO persons (`Name`, `LastName`, `Salary`) VALUES ('Bob', 'Marley', '333')";
 
     public String selectAll(String tableName) {
         return "SELECT * FROM " + tableName;
